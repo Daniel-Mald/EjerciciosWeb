@@ -1,0 +1,16 @@
+﻿body {
+    background-color:darkseagreen;
+}
+ul li{
+    color:darkblue;
+    font-stretch:condensed;
+    font-style:oblique;
+    font-weight:200;
+}
+h1 ,h2 ,h3 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: darkblue;
+    font-stretch: condensed;
+    font-style: oblique;
+    font-weight: 200;
+}

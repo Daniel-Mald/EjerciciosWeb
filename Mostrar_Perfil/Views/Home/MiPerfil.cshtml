@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+@model Mostrar_Perfil.Models.MiPerfilModel;
+<head>
+    <meta charset="utf-8" />
+    <title>Estados de México</title>
+    <link href="~/EstilosPerrones.css" rel="stylesheet" />
+</head>
+<body>
+
+    <h1>Mi perfil</h1>
+   
+    <ul>
+        <li><p>Nombre</p>@Model.Nombre</li>
+        <li><p>Carrera</p>@Model.Carrera</li>
+        <li><p>Numero de control</p>@Model.NumeroControl</li>
+        <li><p>Edad</p>@Model.Edad</li>
+        <li><p>Semestre</p>@Model.Semestre</li>
+        <li><p>Estado</p>@Model.Estado</li>
+    </ul>
+
+</body>
+</html>
