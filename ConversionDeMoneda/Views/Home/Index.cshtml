@@ -1,0 +1,49 @@
+﻿@model ConversionDeMoneda.Models.Entities.ConversionViewModel;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    
+    <title>s</title>
+    <style>
+        div{
+            display:flex;
+            align-items:start;
+            vertical-align:central;
+        }
+        body{
+            background-color:crimson;
+        }
+    </style>
+</head>
+<body>
+    <h2>Conversor de monedas</h2>
+    <form action="~/Home/Index" method="post">
+
+        <div>
+            <input type="number" name="cantidadOrigen" value="@Model.cantidadOrigen" />
+            <p name="monedaOrigen">@Model.tipoMonedaOrigen</p>
+        </div>
+
+      
+           <h3> @Model.cantidadDestino @Model.tipoMonedaDestino</h3>
+       
+       
+        @Html.RadioButtonFor(vm => vm.transaccion,"PesosADolares")<label>Pesos a dolares</label>
+        @Html.RadioButtonFor(vm => vm.transaccion,"DolaresAPesos")<label>Dolares a pesos</label>
+
+        <br/>
+
+        <input type="submit" value="Convertir" />
+            
+        
+
+        
+    </form>
+    
+       
+   
+     
+    
+</body>
+</html>
