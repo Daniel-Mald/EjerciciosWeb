@@ -1,0 +1,46 @@
+﻿@* @model IEnumerable<Animalitos.Models.ViewModels.EspeciesViewModel>; *@
+    @model Animalitos.Models.ViewModels.EspeciesViewModel;
+<html>
+<head>
+    <title>ZooPlanet</title>
+    <link href="~/stylesheet.css" rel="stylesheet" />
+    <link href="~/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1><a href="~/Home/Index"><b>Zoo</b>Planet</a></h1>
+        <nav>
+            <ul>
+                <li><a href="~/Home/Index">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <h1>
+            <img src="~/clases/@(Model.Id).png" /> @Model.Nombre;
+        </h1>
+
+        <div class="listaEspecies2">
+            @{
+                foreach (var item in Model.especiesFotos)
+                {
+                    <a href="~/home/especie/@(item.Nombre)">
+                        <img src="~/especies/@(item.Id).jpg" title="@item.Nombre" />
+                    </a>
+                }
+            }
+            
+           
+        </div>
+
+        <script>
+
+            var c = document.querySelector("main h1 img").cloneNode();
+            document.querySelector("main h1").appendChild(c);
+        </script>
+
+    </main>
+    <footer>Programación Web</footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Animalitos.Models.Entities.Clase>;
+<html>
+<head>
+    <title>ZooPlanet</title>
+    <link href="~/stylesheet.css" rel="stylesheet" />
+    <link href="~/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1><a href="~/home/index"><b>Zoo</b>Planet</a></h1>
+        <nav>
+            <ul>
+                <li><a href="~/Home/index">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <div class="slides">
+            <img src="~/images/carousel1.jpg" />
+        </div>
+
+        <h1>Clasificación de los vertebrados</h1>
+
+        <div class="clases">
+            @{
+                foreach (var classee in Model)
+                {
+                    <div>
+                        <a href="~/Home/Especies/@(classee.Nombre)">
+                            <img src="~/clases/@(classee.Id).jpg" />
+                            <h1>@classee.Nombre</h1>
+                            <p>@classee.Descripcion</p>
+                        </a>
+                    </div>
+                }
+            }
+           
+
+        </div>
+
+    </main>
+    <footer>Programación Web</footer>
+</body>
+</html>
