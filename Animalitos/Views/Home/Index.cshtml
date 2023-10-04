@@ -1,20 +1,7 @@
 ﻿@model IEnumerable<Animalitos.Models.Entities.Clase>;
-<html>
-<head>
-    <title>ZooPlanet</title>
-    <link href="~/stylesheet.css" rel="stylesheet" />
-    <link href="~/font-awesome.min.css" rel="stylesheet" />
-</head>
-<body>
-    <header>
-        <h1><a href="~/home/index"><b>Zoo</b>Planet</a></h1>
-        <nav>
-            <ul>
-                <li><a href="~/Home/index">Home</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
+@{
+    Layout = "MainLayout";
+}
 
         <div class="slides">
             <img src="~/images/carousel1.jpg" />
@@ -39,7 +26,4 @@
 
         </div>
 
-    </main>
-    <footer>Programación Web</footer>
-</body>
-</html>
+    

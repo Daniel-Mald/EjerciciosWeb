@@ -1,6 +1,7 @@
 ﻿using Animalitos.Models.Entities;
 using Animalitos.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Animalitos.Controllers
 {
@@ -16,8 +17,10 @@ namespace Animalitos.Controllers
         }
         public IActionResult Especie(string Id)
         {
-
-            return View();
+            AnimalesContext context = new();
+            Especies modelo = context.Especies.Include(x=>x.IdClaseNavigation)
+                .FirstOrDefault(x => x.Especie == Id) ?? new Especies() ;
+            return View(modelo);
         }
         public IActionResult Especies(string Id)
         {
