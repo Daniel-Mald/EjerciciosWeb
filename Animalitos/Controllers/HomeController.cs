@@ -21,7 +21,7 @@ namespace Animalitos.Controllers
             Especies modelo = context.Especies.Include(x=>x.IdClaseNavigation)
                 .FirstOrDefault(x => x.Especie == Id) ?? new Especies() ;
             return View(modelo);
-        }
+        }//hola que tal
         public IActionResult Especies(string Id)
         {
             AnimalesContext context = new AnimalesContext();

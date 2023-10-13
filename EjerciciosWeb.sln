@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mostrar_Perfil", "Mostrar_P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConversionDeMoneda", "ConversionDeMoneda\ConversionDeMoneda.csproj", "{9F3E5F3C-79B2-4D38-A779-DB3348BF3834}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Animalitos", "Animalitos\Animalitos.csproj", "{58078C49-5E90-4FF9-BA36-AEE0F9213F1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Animalitos", "Animalitos\Animalitos.csproj", "{58078C49-5E90-4FF9-BA36-AEE0F9213F1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerrosWauWau", "PerrosWauWau\PerrosWauWau.csproj", "{EFD48CCD-FEDA-411E-8BF7-EDAB0A224BFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{58078C49-5E90-4FF9-BA36-AEE0F9213F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58078C49-5E90-4FF9-BA36-AEE0F9213F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58078C49-5E90-4FF9-BA36-AEE0F9213F1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFD48CCD-FEDA-411E-8BF7-EDAB0A224BFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFD48CCD-FEDA-411E-8BF7-EDAB0A224BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFD48CCD-FEDA-411E-8BF7-EDAB0A224BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFD48CCD-FEDA-411E-8BF7-EDAB0A224BFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
