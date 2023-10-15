@@ -1,0 +1,36 @@
+﻿@model PerrosWauWau.Models.ViewModels.IndexViewModel;
+@{
+    Layout = "MainLayout";
+}
+<section class="nav">
+    <h3>ABC de Razas</h3>
+    <nav>
+        <a href="~/home/index">Todas</a>
+        @{
+            foreach (var item in Model.Letras)
+            {
+                <a href="~/home/index/@(item)">@item</a>
+            }
+        }
+       
+       
+        <a href="~/Home/PerrosPorPais">Listado por país</a>
+    </nav>
+</section>
+<section class="list">
+    <ul>
+        @{
+            foreach (var item in Model.Perritos)
+            {
+                <li>
+                    <a href="~/raza/@(item.Nombre.Replace(" ","-"))">
+                        <img src="~/imgs_perros/@(item.Id)_0.jpg">
+                        @item.Nombre
+                    </a>
+                </li>
+            }
+        }
+        
+        
+    </ul>
+</section>

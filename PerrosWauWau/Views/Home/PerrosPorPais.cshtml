@@ -1,0 +1,35 @@
+﻿@model IEnumerable<PerrosWauWau.Models.ViewModels.PerrosPorPaisViewModel>;
+@{
+    Layout = "MainLayout";
+}
+<section class="nav">
+    <h3>Razas por país</h3>
+    <nav>
+        <a href="~/home/index">Listado Alfabético de Razas</a>
+    </nav>
+</section>
+
+<section class="list">
+    @{
+        foreach (var item in Model)
+        {
+            <h4>@item.Nombre</h4>
+            <ul>
+            @foreach (var perro in item.Perros)
+                {
+                    <li>
+                        <a href="~/raza/@(perro.Nombre.Replace(" ","-"))">
+                            <img src="~/imgs_perros/@(perro.Id)_0.jpg" />
+                            @perro.Nombre
+                        </a>
+                    </li>
+                }
+               
+                
+            </ul>
+        }
+    }
+    
+    
+
+</section>
