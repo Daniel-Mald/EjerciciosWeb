@@ -1,0 +1,55 @@
+﻿@model Hamburguesas.Areas.Admin.Models.AdminIndexViewModel;
+@{
+    Layout = "_LayoutAdmin";
+}
+<main>
+    <section class="menu2">
+        @foreach (var item in Model.Clasificaciones)
+        {
+            <h1>@item.Nombre</h1>
+            foreach (var ham in item.Hamburguesas)
+            {
+                <div>
+                    <img src="~/hamburguesas/@(ham.Id).png" />
+                    <h1>@ham.Nombre</h1>
+                    @if(ham.PrecioDescuento > 0)
+                    {
+                        <h2><del>@ham.Precio.ToString("c")</del><br />@ham.PrecioDescuento.ToString("c")</h2>
+                    }
+                    else
+                    {
+                        <h2>@ham.Precio.ToString("c")</h2>
+                    }
+                    
+                    <p>
+                        @ham.Descripcion
+                    </p>
+
+                    <span class="acciones">
+                        <a href="~/Admin/Hamburguesa/Editar/@(ham.Id)">Editar</a>
+                        <a href="~/Admin/Hamburguesa/Eliminar/@(ham.Id)">Eliminar</a>
+                        @if(ham.PrecioDescuento > 0)
+                        {
+                            <a href="~/Admin/Promociones/Eliminar/@(ham.Id)">Quitar promoción</a>
+                        }
+                        else
+                        {
+                            <a href="~/Admin/Promociones/Agregar/@(ham.Id)">Agregar promoción</a>
+                        }
+
+
+                    </span>
+                </div>
+            }
+        }
+        
+       
+
+       
+
+        
+       
+
+        <a class="fab" href="~/Admin/Hamburguesa/Agregar">+</a>
+    </section>
+</main>

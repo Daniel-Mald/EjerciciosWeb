@@ -1,0 +1,52 @@
+﻿@model Hamburguesas.Areas.Admin.Models.AdminAgregarPromocionViewModel;
+@{
+    Layout = "_LayoutAdmin";
+}
+<form method="post" action="~/Admin/Promociones/Eliminar">
+    <h1>Eliminar promoción</h1>
+    <input hidden name="Id" value="@Model.Id"/>
+    <span class="pregunta"><b>¿Desea eliminar la promoción de la hamburguesa?</b></span>
+    <span>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required readonly value="@Model.Nombre" name="Nombre">
+    </span>
+    <span>
+        <label for="precio">Precio real:</label>
+        <input type="text" id="precio" required readonly value="@Model.Precio" name="Precio">
+    </span><span>
+        <label for="promocion">Precio promocion:</label>
+        <input type="text" id="promocion" required readonly value="@Model.PrecioDescuento" name="PrecioDescuento"/>
+    </span>
+    <span class="error">@Html.ValidationSummary(true)</span>
+
+    <div class="botones">
+        <input type="submit" value="Si" />
+        <a href="~/Admin">
+            <input type="button" value="No" />
+        </a>
+    </div>
+</form>
+
+<script>
+
+    function previewImagen() {
+        const inputImagen = document.getElementById('imagen');
+        const imagenPreview = document.getElementById('imagen-preview');
+
+        const archivoImagen = inputImagen.files[0];
+
+        if (archivoImagen) {
+            const lector = new FileReader();
+
+            lector.onload = function (e) {
+                imagenPreview.src = e.target.result;
+                imagenPreview.style.display = 'block';
+            };
+
+            lector.readAsDataURL(archivoImagen);
+        } else {
+            imagenPreview.src = '#';
+            imagenPreview.style.display = 'none';
+        }
+    }
+</script>

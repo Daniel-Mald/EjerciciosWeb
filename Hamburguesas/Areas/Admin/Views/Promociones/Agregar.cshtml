@@ -1,0 +1,28 @@
+﻿@model Hamburguesas.Areas.Admin.Models.AdminAgregarPromocionViewModel;
+@{
+    Layout = "_LayoutAdmin";
+}
+<form method="post" action="~/Admin/Promociones/Agregar">
+    <h1>Agregar un descuento de promoción</h1>
+    <input hidden value="@Model.Id" name="Id"/>
+    <span>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required  readonly name="Nombre" value="@Model.Nombre">
+    </span>
+    <span>
+        <label for="precio">Precio real:</label>
+        <input type="text" id="precio" required readonly name="Precio" value="@Model.Precio">
+    </span>
+    <span>
+        <label for="promocion">Precio promoción:</label>
+        <input type="text" id="promocion" required value="@Model.PrecioDescuento" name="PrecioDescuento">
+    </span>
+    <span class="error">@Html.ValidationSummary(true)</span>
+
+    <div class="botones">
+        <input type="submit" value="Agregar" />
+        <a href="~/Admin">
+            <input type="button" value="Cancelar" />
+        </a>
+    </div>
+</form>

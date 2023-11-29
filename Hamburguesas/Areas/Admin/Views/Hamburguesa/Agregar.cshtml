@@ -1,0 +1,70 @@
+﻿@model Hamburguesas.Areas.Admin.Models.AdminAgregarHamburguesaViewModel;
+@{
+    Layout = "_LayoutAdmin";
+}
+<form method="post" action="~/Admin/Hamburguesa/Agregar" enctype="multipart/form-data">
+    <h1>Agregar hamburguesa al menú</h1>
+    <span>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required name="Hamburguesa.Nombre" value="@Model.Hamburguesa.Nombre">
+    </span>
+
+    <span>
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" min="0" step="0.01" required name="Hamburguesa.Precio" value="@Model.Hamburguesa.Precio">
+    </span>
+
+    <span>
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" required name="Hamburguesa.Descripción" value="@Model.Hamburguesa.Descripción"></textarea>
+    </span>
+
+    <span>
+        <label for="clasificacion">Clasificación:</label>
+        <select id="clasificacion" required name="Hamburguesa.IdClasificacion" >
+            @foreach (var item in Model.Clasificaciones)
+            {
+                <option value="@(item.Id)">@item.Nombre</option>
+            }
+            
+        </select>
+    </span>
+   
+    <span>
+        <label for="imagen">Imagen:</label>
+        <input type="file" id="imagen" accept="image/png" onchange="previewImagen()" name="Archivo" value="@Model.Archivo">
+        <img id="imagen-preview" src="~/images/burger.png">
+    </span>
+
+    <div class="botones">
+        <input type="submit" value="Agregar" />
+        <a href="menu.html">
+            <input type="button" value="Cancelar" />
+        </a>
+    </div>
+    @Html.ValidationSummary(true);
+</form>
+
+<script>
+
+    function previewImagen() {
+        const inputImagen = document.getElementById('imagen');
+        const imagenPreview = document.getElementById('imagen-preview');
+
+        const archivoImagen = inputImagen.files[0];
+
+        if (archivoImagen) {
+            const lector = new FileReader();
+
+            lector.onload = function (e) {
+                imagenPreview.src = e.target.result;
+                imagenPreview.style.display = 'block';
+            };
+
+            lector.readAsDataURL(archivoImagen);
+        } else {
+            imagenPreview.src = '#';
+            imagenPreview.style.display = 'none';
+        }
+    }
+</script>

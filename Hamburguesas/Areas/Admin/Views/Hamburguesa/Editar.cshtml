@@ -1,0 +1,79 @@
+﻿@model Hamburguesas.Areas.Admin.Models.AdminAgregarHamburguesaViewModel;
+@{
+    Layout = "_LayoutAdmin";
+}
+<form method="post" action="~/Admin/Hamburguesa/Editar" enctype="multipart/form-data">
+    <input type="hidden" name="Hamburguesa.Id" value="@Model.Hamburguesa.Id"/>
+    <h1>Editar hamburguesa del menú</h1>
+    <span>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required value="@Model.Hamburguesa.Nombre" name="Hamburguesa.Nombre">
+    </span>
+
+    <span>
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" min="0" step="0.01" required value="@Model.Hamburguesa.Precio" name="Hamburguesa.Precio">
+    </span>
+
+    <span>
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" required name="Hamburguesa.Descripción">@Model.Hamburguesa.Descripción</textarea>
+    </span>
+
+    <span>
+        <label for="clasificacion">Clasificación:</label>
+        <select id="clasificacion" required name="Hamburguesa.IdClasificacion">
+            @foreach (var item in Model.Clasificaciones)
+            {
+                @if(item.Id == Model.Hamburguesa.IdClasificacion)
+                {
+                    <option selected value="@item.Id">@item.Nombre</option>
+                }
+                else
+                {
+                    <option value="@item.Id">@item.Nombre</option>
+                }
+               
+            }
+            
+        </select>
+    </span>
+
+    <span>
+        <label for="imagen">Imagen:</label>
+        <input type="file" id="imagen" accept="image/png" onchange="previewImagen()" value="@Model.Archivo" name="Archivo">
+        <img id="imagen-preview" src="~/hamburguesas/@(Model.Hamburguesa.Id).png">
+    </span>
+
+    <div class="botones">
+        <input type="submit" value="Guardar" />
+        <a href="~/Admin/Hamburguesa/Index">
+            <input type="button" value="Cancelar" />
+        </a>
+    </div>
+    @Html.ValidationSummary(true);
+</form>
+
+<script>
+
+    function previewImagen() {
+        const inputImagen = document.getElementById('imagen');
+        const imagenPreview = document.getElementById('imagen-preview');
+
+        const archivoImagen = inputImagen.files[0];
+
+        if (archivoImagen) {
+            const lector = new FileReader();
+
+            lector.onload = function (e) {
+                imagenPreview.src = e.target.result;
+                imagenPreview.style.display = 'block';
+            };
+
+            lector.readAsDataURL(archivoImagen);
+        } else {
+            imagenPreview.src = '#';
+            imagenPreview.style.display = 'none';
+        }
+    }
+</script>
